@@ -1,24 +1,24 @@
-# Flask Appfactory
+# Flask Appconfigure
 
-*Flask Appfactoy* is a simple and lightweight module which simplifies the concept
+*Flask Appconfigure* is a simple and lightweight module which simplifies the concept
 of creating and configuring Flask Applications in an Object-Oriented Way.
 
 ## Installation
 
-You can install *Flask Appfactory* from this Github repository with `python3 setup.py install`,
-or just install it directly from pypi with `pip3 install flask-appfactory`.
+You can install *Flask Appconfigure* from this Github repository with `python3 setup.py install`,
+or just install it directly from pypi with `pip3 install flask-appconfigure`.
 
 
 ## Get Started
 
 ### BaseConfigurator
 
-Flask Appfactory uses the concept of Configurators. Each configurator should do exactly one configuration.
+Flask Appconfigure uses the concept of Configurators. Each configurator should do exactly one configuration.
 To create a custom configurator, simply subclass from `BaseConfigurator` and implement the `configure` method.
 Inside the configure method, you have access to the Flask Application through `self.app`:
 
 ```python
-from flask_appfactory import BaseConfigurator
+from flask_appconfigure import BaseConfigurator
 
 class DummyConfigurator(BaseConfigurator):
     ExitOnError = False
@@ -37,7 +37,7 @@ To use your own configurators, you will need an instance of a `ConfiguratorPool`
 in exactly the same order as they are then executed.
 
 ```python
-from flask_appfactoy import ConfiguratorPool, BaseConfigurator
+from flask_appconfigure import ConfiguratorPool, BaseConfigurator
 
 class DummyConfigurator2(BaseConfigurator):
     def configure(self, environment="dev"):
@@ -62,7 +62,7 @@ pool.add_configurator(DummyConfigurator2, kwargs={"environment": "test"})
 The `ApplicationFactory` brings all the pieces together and actually executes your configurators.
 
 ```python
-from flask_appfactoy import ApplicationFactory
+from flask_appconfigure import ApplicationFactory
 
 factory = ApplicationFactory(pool)
 app = factory.create_app(template_folder='my_template_folder')
