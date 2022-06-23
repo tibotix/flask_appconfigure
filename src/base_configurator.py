@@ -5,9 +5,9 @@ class BaseConfigurator:
     def __init__(self, app):
         self.app = app
 
-    def configure_wrapper(self):
+    def configure_wrapper(self, *args, **kwargs):
         try:
-            self.configure()
+            self.configure(*args, **kwargs)
         except Exception as e:
             self._log_exception(e)
             self._handle_exception(e)
