@@ -9,7 +9,7 @@ long_description = (here / "README.md").read_text(encoding="utf-8")
 
 setup(
     name="flask_appconfigure",
-    version="1.0.0",
+    version="1.0.1",
     description="Flask Application Configurator",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -18,6 +18,7 @@ setup(
     url="https://github.com/tibotix/flask_appconfigure",
     package_dir={"flask_appconfigure": "src"},
     packages=["flask_appconfigure"],
+    install_requires=["flask"],
     extras_require={"test": ["pytest"]},
     python_requires=">=3.7, <4",
 )
