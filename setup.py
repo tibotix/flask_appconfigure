@@ -6,6 +6,7 @@ import pathlib
 
 here = pathlib.Path(__file__).parent.resolve()
 long_description = (here / "README.md").read_text(encoding="utf-8")
+install_requires = (here / "requirements.txt").read_text(encoding="utf-8").splitlines()
 
 setup(
     name="flask_appconfigure",
@@ -18,7 +19,7 @@ setup(
     url="https://github.com/tibotix/flask_appconfigure",
     package_dir={"flask_appconfigure": "src"},
     packages=["flask_appconfigure"],
-    install_requires=["flask"],
+    install_requires=install_requires,
     extras_require={"test": ["pytest"]},
     python_requires=">=3.7, <4",
 )

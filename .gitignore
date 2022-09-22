@@ -4,4 +4,6 @@ __pycache__/
 .tox/
 dist/
 *.egg-info/
+.coverage
+coverage.xml
 
